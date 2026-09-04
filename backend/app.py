@@ -1,14 +1,12 @@
 import io
 import os
+import sys
 from typing import Optional
 
 from docx import Document
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-
-from index_generator import IndexGenerator
-
 
 DEFAULT_MODEL = os.getenv("SPACY_MODEL", "en_core_web_trf")
 DEFAULT_WORDS_PER_PAGE = int(os.getenv("WORDS_PER_PAGE", "250"))
@@ -29,12 +27,30 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-_generator: Optional[IndexGenerator] = None
+_generator: Optional[object] = None
 
 
-def get_generator(words_per_page: int) -> IndexGenerator:
+def _load_index_generator_class():
+    """
+    Import IndexGenerator with a fallback path so Render works
+    whether the service root is repo root or backend/.
+    """
+    try:
+        from index_generator import IndexGenerator
+        return IndexGenerator
+    except ModuleNotFoundError:
+        backend_dir = os.path.dirname(__file__)
+        repo_root = os.path.abspath(os.path.join(backend_dir, ".."))
+        if repo_root not in sys.path:
+            sys.path.insert(0, repo_root)
+        from index_generator import IndexGenerator
+        return IndexGenerator
+
+
+def get_generator(words_per_page: int):
     # Cache NLP model in memory for speed; recreate if words/page changed.
     global _generator
+    IndexGenerator = _load_index_generator_class()
     if _generator is None or _generator.words_per_page != words_per_page:
         _generator = IndexGenerator(words_per_page=words_per_page, model_name=DEFAULT_MODEL)
     # Clear previous run state.
