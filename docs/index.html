@@ -52,9 +52,12 @@
                     <label class="field-label" for="wordsPerPage">Words per page (approximation)</label>
                     <input id="wordsPerPage" type="number" min="100" max="800" value="250" />
 
+                    <label class="field-label" for="apiBaseUrl">Render API URL</label>
+                    <input id="apiBaseUrl" type="url" placeholder="https://your-render-service.onrender.com" />
+
                     <button id="generateBtn" class="btn btn-primary app-btn" type="button">Generate Index</button>
                     <button id="downloadBtn" class="btn btn-secondary app-btn hidden" type="button">Download .txt</button>
-                    <p id="appStatus" class="small-note">Upload a `.docx` file to begin.</p>
+                    <p id="appStatus" class="small-note">Upload a `.docx` file, set your Render API URL, then generate.</p>
                 </div>
                 <div class="app-output">
                     <label class="field-label" for="indexOutput">Generated index</label>
@@ -236,7 +239,6 @@ Socrates, 28</pre>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/mammoth@1.8.0/mammoth.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -117,3 +117,9 @@ Potential improvements:
 - Cross-references ("See also...")
 - Better page number detection using actual page breaks
 - Support for other document formats (PDF, plain text)
+
+## High-Accuracy Web Deployment
+
+To run the highest-accuracy pipeline (`en_core_web_trf`) behind your GitHub Pages site, deploy the FastAPI backend on Render.
+
+See `RENDER_DEPLOYMENT.md` for full setup steps.

@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: indexer-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: SPACY_MODEL
+        value: en_core_web_trf
+      - key: WORDS_PER_PAGE
+        value: "250"
+      - key: MAX_UPLOAD_MB
+        value: "25"

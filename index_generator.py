@@ -12,7 +12,7 @@ from typing import Dict, List, Tuple
 
 
 class IndexGenerator:
-    def __init__(self, words_per_page: int = 250):
+    def __init__(self, words_per_page: int = 250, model_name: str = "en_core_web_sm"):
         """
         Initialize the index generator.
         
@@ -20,10 +20,11 @@ class IndexGenerator:
             words_per_page: Approximate words per page for page number calculation
         """
         self.words_per_page = words_per_page
+        self.model_name = model_name
         try:
-            self.nlp = spacy.load("en_core_web_sm")
+            self.nlp = spacy.load(self.model_name)
         except OSError:
-            print("SpaCy model not found. Please run: python -m spacy download en_core_web_sm")
+            print(f"SpaCy model '{self.model_name}' not found. Please install/download it.")
             raise
         
         # Track terms and their page numbers
@@ -57,6 +58,30 @@ class IndexGenerator:
                 
                 text_with_pages.append((text, current_page))
         
+        return text_with_pages
+
+    def extract_text_with_positions_from_document(self, document: Document) -> List[Tuple[str, int]]:
+        """
+        Extract text from an already loaded python-docx Document with approximate page numbers.
+
+        Args:
+            document: Loaded python-docx document
+
+        Returns:
+            List of (text, page_number) tuples
+        """
+        text_with_pages = []
+        word_count = 0
+
+        for paragraph in document.paragraphs:
+            text = paragraph.text.strip()
+            if not text:
+                continue
+
+            word_count += len(text.split())
+            current_page = (word_count // self.words_per_page) + 1
+            text_with_pages.append((text, current_page))
+
         return text_with_pages
     
     def is_likely_person_name(self, text: str, label: str) -> bool:
