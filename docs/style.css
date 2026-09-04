@@ -154,6 +154,16 @@ nav {
     background: rgba(255, 255, 255, 0.12);
 }
 
+.cta-outline {
+    color: var(--primary-dark);
+    border: 1px solid var(--primary-dark);
+    background: transparent;
+}
+
+.cta-outline:hover {
+    background: rgba(49, 89, 245, 0.08);
+}
+
 .trust-bar {
     margin-top: 1.4rem;
     display: inline-flex;
