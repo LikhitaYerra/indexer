@@ -10,6 +10,13 @@ from collections import defaultdict
 import re
 from typing import Dict, List, Tuple
 
+# Ensures curated transformer pipeline components are registered
+# when using en_core_web_trf.
+try:
+    import spacy_curated_transformers  # noqa: F401
+except ImportError:
+    spacy_curated_transformers = None
+
 
 class IndexGenerator:
     def __init__(self, words_per_page: int = 250, model_name: str = "en_core_web_sm"):
