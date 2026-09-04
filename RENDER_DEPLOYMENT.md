@@ -62,3 +62,5 @@ Then push changes.
 - `en_core_web_trf` gives best general accuracy here.
 - Free/smaller plans may sleep; first request after idle can be slow.
 - Keep `MAX_UPLOAD_MB` in `render.yaml` aligned with expected manuscript sizes.
+- Current repo default is set to **1024 MB (1GB)** via `MAX_UPLOAD_MB=1024`.
+- Important: hosting/network layers can still enforce lower request-size limits before the app sees the file.

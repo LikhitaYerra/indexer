@@ -12,7 +12,7 @@ from index_generator import IndexGenerator
 
 DEFAULT_MODEL = os.getenv("SPACY_MODEL", "en_core_web_trf")
 DEFAULT_WORDS_PER_PAGE = int(os.getenv("WORDS_PER_PAGE", "250"))
-MAX_UPLOAD_MB = int(os.getenv("MAX_UPLOAD_MB", "25"))
+MAX_UPLOAD_MB = int(os.getenv("MAX_UPLOAD_MB", "1024"))
 
 app = FastAPI(title="Indexer API", version="1.0.0")
 

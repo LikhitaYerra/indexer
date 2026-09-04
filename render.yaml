@@ -11,4 +11,4 @@ services:
       - key: WORDS_PER_PAGE
         value: "250"
       - key: MAX_UPLOAD_MB
-        value: "25"
+        value: "1024"
