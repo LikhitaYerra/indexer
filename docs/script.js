@@ -110,7 +110,7 @@ document.querySelectorAll('.code-block').forEach(block => {
 // Add GitHub star counter (optional - requires GitHub API)
 async function fetchGitHubStars() {
     try {
-        const response = await fetch('https://api.github.com/repos/likhitayerra/indexer');
+        const response = await fetch('https://api.github.com/repos/LikhitaYerra/indexer');
         const data = await response.json();
         
         // You can display the star count somewhere on the page
