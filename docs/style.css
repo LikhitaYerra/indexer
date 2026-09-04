@@ -5,13 +5,14 @@
 }
 
 :root {
-    --primary: #2f53ff;
-    --primary-dark: #2642cc;
+    --primary: #3159f5;
+    --primary-dark: #2442b8;
     --text: #111827;
     --muted: #4b5563;
-    --bg: #f8fafc;
+    --bg: #f4f7ff;
     --white: #ffffff;
-    --border: #e5e7eb;
+    --border: #dbe3f2;
+    --surface: #eef3ff;
 }
 
 html {
@@ -22,22 +23,38 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: var(--text);
     line-height: 1.6;
-    background: var(--white);
+    background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
 }
 
 .container {
     max-width: 1024px;
     margin: 0 auto;
-    padding: 0 1.25rem;
+    padding: 0 1.1rem;
 }
 
 .hero {
-    background: linear-gradient(140deg, #0f172a 0%, #1d4ed8 65%, #3b82f6 100%);
+    background: radial-gradient(circle at 15% 20%, #4068ff 0%, #1f3a8a 42%, #0f172a 100%);
     color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    right: -120px;
+    top: -120px;
+    filter: blur(1px);
 }
 
 nav {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 3;
 }
 
 .nav-wrap {
@@ -49,8 +66,9 @@ nav {
 }
 
 .logo {
-    font-size: 1.125rem;
+    font-size: 1.2rem;
     font-weight: 700;
+    letter-spacing: 0.01em;
 }
 
 .nav-links {
@@ -62,23 +80,29 @@ nav {
 .nav-links a {
     color: var(--white);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     opacity: 0.9;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 0.1rem;
 }
 
 .nav-links a:hover {
     opacity: 1;
+    border-bottom-color: rgba(255, 255, 255, 0.6);
 }
 
 .hero-content {
     text-align: center;
     padding: 4.5rem 1.25rem 5rem;
+    position: relative;
+    z-index: 2;
 }
 
 .eyebrow {
     font-size: 0.95rem;
-    letter-spacing: 0.02em;
-    opacity: 0.9;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.85;
     margin-bottom: 0.6rem;
 }
 
@@ -92,6 +116,7 @@ nav {
     max-width: 760px;
     margin: 0 auto 1.8rem;
     opacity: 0.95;
+    font-size: 1.03rem;
 }
 
 .hero-buttons {
@@ -105,18 +130,19 @@ nav {
     display: inline-block;
     text-decoration: none;
     font-weight: 600;
-    border-radius: 0.5rem;
-    padding: 0.8rem 1.3rem;
-    transition: 0.2s ease;
+    border-radius: 0.65rem;
+    padding: 0.85rem 1.4rem;
+    transition: 0.2s ease all;
 }
 
 .btn-primary {
     background: var(--white);
     color: #0f172a;
+    box-shadow: 0 10px 25px rgba(12, 19, 43, 0.25);
 }
 
 .btn-primary:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 .btn-secondary {
@@ -126,6 +152,22 @@ nav {
 
 .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.12);
+}
+
+.trust-bar {
+    margin-top: 1.4rem;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.trust-bar span {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
 }
 
 .section {
@@ -139,20 +181,33 @@ nav {
 .section-title {
     text-align: center;
     font-size: clamp(1.6rem, 3vw, 2.2rem);
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+.lead {
+    max-width: 760px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: var(--muted);
 }
 
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
+    gap: 1.1rem;
 }
 
 .card {
     border: 1px solid var(--border);
-    border-radius: 0.7rem;
-    padding: 1.2rem;
+    border-radius: 0.9rem;
+    padding: 1.25rem;
     background: var(--white);
+    box-shadow: 0 8px 20px rgba(17, 24, 39, 0.04);
+    transition: transform 0.18s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
 }
 
 .card h3 {
@@ -162,6 +217,65 @@ nav {
 
 .card p {
     color: var(--muted);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.price-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.2rem;
+    box-shadow: 0 8px 20px rgba(17, 24, 39, 0.04);
+}
+
+.price-card h3 {
+    margin-bottom: 0.35rem;
+}
+
+.price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: var(--primary-dark);
+}
+
+.price-card ul {
+    list-style: none;
+    color: var(--muted);
+}
+
+.price-card li {
+    margin: 0.35rem 0;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.price-card li::before {
+    content: "•";
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+}
+
+.price-card.featured {
+    border: 2px solid var(--primary);
+    background: linear-gradient(180deg, #ffffff 0%, #f6f9ff 100%);
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--primary);
+    border-radius: 999px;
+    padding: 0.2rem 0.55rem;
+    margin-bottom: 0.4rem;
 }
 
 .steps {
@@ -176,8 +290,9 @@ nav {
     gap: 0.9rem;
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 0.7rem;
+    border-radius: 0.9rem;
     padding: 1rem;
+    box-shadow: 0 8px 18px rgba(17, 24, 39, 0.03);
 }
 
 .step-number {
@@ -205,9 +320,11 @@ nav {
 .sample-box {
     background: #0b1224;
     color: #e2e8f0;
-    border-radius: 0.8rem;
-    padding: 1rem;
+    border-radius: 1rem;
+    padding: 1.1rem;
     overflow-x: auto;
+    border: 1px solid #1f2a44;
+    box-shadow: 0 12px 24px rgba(11, 18, 36, 0.25);
 }
 
 .sample-box pre {
@@ -216,9 +333,33 @@ nav {
     font-size: 0.93rem;
 }
 
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.faq-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    padding: 1rem;
+}
+
+.faq-item h3 {
+    margin-bottom: 0.3rem;
+    font-size: 1.02rem;
+}
+
+.faq-item p {
+    color: var(--muted);
+}
+
 .cta {
     text-align: center;
-    background: var(--bg);
+    background: linear-gradient(180deg, #eef3ff 0%, #e8eeff 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
 .cta-text {
@@ -237,6 +378,18 @@ footer {
     padding: 1.5rem 0;
     text-align: center;
     color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (max-width: 768px) {
@@ -249,5 +402,10 @@ footer {
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .hero-content {
+        padding-top: 3.2rem;
+        padding-bottom: 3.7rem;
     }
 }
