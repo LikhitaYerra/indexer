@@ -37,7 +37,7 @@ const appStatus = document.getElementById("appStatus");
 
 let lastGeneratedIndex = "";
 
-const DEFAULT_API_BASE = "";
+const DEFAULT_API_BASE = "https://indexer-azf4.onrender.com";
 
 if (apiBaseUrlInput) {
     apiBaseUrlInput.value = localStorage.getItem("indexerApiBase") || DEFAULT_API_BASE;
