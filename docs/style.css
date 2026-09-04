@@ -180,6 +180,60 @@ nav {
     font-size: 0.82rem;
 }
 
+.app-section {
+    background: var(--surface);
+}
+
+.app-card {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 1rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 10px 20px rgba(17, 24, 39, 0.05);
+}
+
+.app-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.field-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+input[type="file"],
+input[type="number"],
+textarea {
+    border: 1px solid var(--border);
+    border-radius: 0.6rem;
+    padding: 0.7rem 0.8rem;
+    font: inherit;
+}
+
+textarea {
+    width: 100%;
+    resize: vertical;
+    background: #fafcff;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9rem;
+}
+
+.app-btn {
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
 .section {
     padding: 4rem 0;
 }
@@ -417,5 +471,9 @@ footer {
     .hero-content {
         padding-top: 3.2rem;
         padding-bottom: 3.7rem;
+    }
+
+    .app-card {
+        grid-template-columns: 1fr;
     }
 }

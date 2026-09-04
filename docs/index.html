@@ -13,6 +13,7 @@
             <div class="container nav-wrap">
                 <h1 class="logo">Indexer</h1>
                 <ul class="nav-links">
+                    <li><a href="#app">Try It</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#why">Why Indexer</a></li>
@@ -28,7 +29,7 @@
             <h2 class="hero-title">Generate Name Indexes for Books in Minutes</h2>
             <p class="hero-subtitle">Indexer extracts person names from your manuscript and produces a clean alphabetical index with page references for end-of-book publishing.</p>
             <div class="hero-buttons">
-                <a class="btn btn-primary" href="#contact">Use Indexer</a>
+                <a class="btn btn-primary" href="#app">Use Indexer Now</a>
                 <a class="btn btn-secondary" href="#sample">View Sample Output</a>
             </div>
             <div class="trust-bar">
@@ -38,6 +39,30 @@
             </div>
         </div>
     </header>
+
+    <section id="app" class="section app-section">
+        <div class="container">
+            <h2 class="section-title">Use Indexer in Your Browser</h2>
+            <p class="lead">Upload a Word file and generate a person-name index instantly. No install needed.</p>
+            <div class="app-card">
+                <div class="app-controls">
+                    <label class="field-label" for="docxFile">Word document (.docx)</label>
+                    <input id="docxFile" type="file" accept=".docx" />
+
+                    <label class="field-label" for="wordsPerPage">Words per page (approximation)</label>
+                    <input id="wordsPerPage" type="number" min="100" max="800" value="250" />
+
+                    <button id="generateBtn" class="btn btn-primary app-btn" type="button">Generate Index</button>
+                    <button id="downloadBtn" class="btn btn-secondary app-btn hidden" type="button">Download .txt</button>
+                    <p id="appStatus" class="small-note">Upload a `.docx` file to begin.</p>
+                </div>
+                <div class="app-output">
+                    <label class="field-label" for="indexOutput">Generated index</label>
+                    <textarea id="indexOutput" rows="18" readonly placeholder="Your index output will appear here..."></textarea>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="about" class="section">
         <div class="container">
@@ -196,7 +221,7 @@ Socrates, 28</pre>
     <section id="contact" class="section cta">
         <div class="container">
             <h2 class="section-title">Start Using Indexer for Your Book</h2>
-            <p class="cta-text">Use the repository or contact me for setup support and customization for your publishing workflow.</p>
+            <p class="cta-text">Need help customizing Indexer for your workflow? Reach out for support and setup.</p>
             <div class="hero-buttons">
                 <a class="btn btn-primary" href="https://github.com/LikhitaYerra/indexer" target="_blank" rel="noopener noreferrer">Open Indexer on GitHub</a>
                 <a class="btn btn-secondary cta-outline" href="mailto:your-email@example.com?subject=Indexer%20for%20Book%20Project">Contact for Setup</a>
@@ -211,6 +236,7 @@ Socrates, 28</pre>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/mammoth@1.8.0/mammoth.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
