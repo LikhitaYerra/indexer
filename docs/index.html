@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Automatically extract person names from Word documents and generate book indexes">
+    <title>Book Index Generator - Extract Names from Documents</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <nav>
+            <div class="container">
+                <h1 class="logo">📚 Index Generator</h1>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#demo">Demo</a></li>
+                    <li><a href="#usage">Usage</a></li>
+                    <li><a href="https://github.com/likhitayerra/indexer" target="_blank">GitHub</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="hero-content container">
+            <h2 class="hero-title">Automatically Generate Book Indexes</h2>
+            <p class="hero-subtitle">Extract person names from Word documents using AI/NLP</p>
+            <div class="hero-buttons">
+                <a href="https://github.com/likhitayerra/indexer" class="btn btn-primary" target="_blank">
+                    Get Started
+                </a>
+                <a href="#demo" class="btn btn-secondary">See Demo</a>
+            </div>
+            
+            <!-- Quick Example -->
+            <div class="quick-example">
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <span class="terminal-dot red"></span>
+                        <span class="terminal-dot yellow"></span>
+                        <span class="terminal-dot green"></span>
+                        <span class="terminal-title">Terminal</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p><span class="prompt">$</span> python3 index_generator.py my_book.docx</p>
+                        <p class="output">Processing document: my_book.docx</p>
+                        <p class="output">Found 47 unique names</p>
+                        <p class="output success">✓ Index saved to: my_book_index.txt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered</h3>
+                    <p>Uses SpaCy NLP to automatically identify person names in your documents</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Word Documents</h3>
+                    <p>Works with .docx files - the most common document format</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Names Only</h3>
+                    <p>Extracts only person names, filtering out places, organizations, and events</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Page Numbers</h3>
+                    <p>Tracks approximate page numbers for each name found</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔤</div>
+                    <h3>Alphabetical</h3>
+                    <p>Generates alphabetically sorted index, grouped by letter</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast & Easy</h3>
+                    <p>One command to process any document in seconds</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2 class="section-title">Example Output</h2>
+            <p class="section-subtitle">From a sample historical document</p>
+            
+            <div class="demo-container">
+                <div class="demo-card">
+                    <h3>📝 Input Document</h3>
+                    <div class="document-preview">
+                        <p><strong>A Brief History of Ancient Civilizations</strong></p>
+                        <p>Ancient Rome was one of the most powerful empires in history. Julius Caesar, one of Rome's greatest generals...</p>
+                        <p>In Egypt, Cleopatra VII was known for her intelligence and political acumen. Her relationships with Julius Caesar and Mark Antony...</p>
+                        <p>Ancient Greece gave birth to democracy in Athens. Philosophers like Socrates, Plato, and Aristotle laid the foundations...</p>
+                        <p class="fade">...</p>
+                    </div>
+                </div>
+                
+                <div class="arrow">→</div>
+                
+                <div class="demo-card">
+                    <h3>📋 Generated Index</h3>
+                    <div class="index-preview">
+                        <p class="index-header">INDEX</p>
+                        <p class="index-section">— A —</p>
+                        <p class="index-entry">Alexander the Great: 1</p>
+                        <p class="index-entry">Aristotle: 1</p>
+                        <p class="index-section">— C —</p>
+                        <p class="index-entry">Cleopatra VII: 1</p>
+                        <p class="index-entry">Cyrus the Great: 2</p>
+                        <p class="index-section">— J —</p>
+                        <p class="index-entry">Julius Caesar: 1</p>
+                        <p class="index-section">— M —</p>
+                        <p class="index-entry">Mark Antony: 1</p>
+                        <p class="index-section">— S —</p>
+                        <p class="index-entry">Socrates: 1</p>
+                        <p class="fade">...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usage Section -->
+    <section id="usage" class="usage">
+        <div class="container">
+            <h2 class="section-title">Quick Start</h2>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Install</h3>
+                        <div class="code-block">
+                            <code>pip install -r requirements.txt</code>
+                            <code>python -m spacy download en_core_web_sm</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Run</h3>
+                        <div class="code-block">
+                            <code>python3 index_generator.py your_book.docx</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Done!</h3>
+                        <p>Your index is saved as <code class="inline-code">your_book_index.txt</code></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta">
+                <a href="https://github.com/likhitayerra/indexer" class="btn btn-large" target="_blank">
+                    View on GitHub →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Built with Python, SpaCy, and python-docx</p>
+            <p class="footer-links">
+                <a href="https://github.com/likhitayerra/indexer" target="_blank">GitHub</a>
+                <span>•</span>
+                <a href="https://github.com/likhitayerra/indexer/blob/main/README.md" target="_blank">Documentation</a>
+                <span>•</span>
+                <a href="https://github.com/likhitayerra/indexer/issues" target="_blank">Issues</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
