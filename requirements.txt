@@ -1,3 +1,7 @@
+# Root requirements also include backend dependencies so default
+# Render Python builds (pip install -r requirements.txt) work.
+-r backend/requirements.txt
+
+# Local CLI usage dependencies (kept explicit for clarity)
 python-docx>=1.1.0
 spacy>=3.7.0
-# After installing requirements, run: python -m spacy download en_core_web_sm
